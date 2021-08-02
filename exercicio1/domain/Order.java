@@ -70,8 +70,8 @@ public class Order {
         sb.append("Order status:" + status + "\n");
         sb.append("Client: " + client + "\n");
         sb.append("Order Items: \n");
-        for(OrderItem c : order) {
-            sb.append(order + "\n");
+        for(OrderItem item : order) {
+            sb.append(item + "\n");
         }
         sb.append("Total price: $");
         sb.append(String.format("%.2f", total()));
