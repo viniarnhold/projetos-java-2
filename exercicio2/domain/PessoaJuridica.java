@@ -4,9 +4,10 @@ public class PessoaJuridica extends Contribuintes {
 
     private Integer numeroDeFuncionarios;
 
-    public PessoaJuridica(){
+    public PessoaJuridica() {
         super();
     }
+
     public PessoaJuridica(String nome, Double rendaAnual, Integer numeroDeFuncionarios) {
         super(nome, rendaAnual);
         this.numeroDeFuncionarios = numeroDeFuncionarios;
@@ -23,14 +24,16 @@ public class PessoaJuridica extends Contribuintes {
     @Override
     public Double imposto() {
         double imp;
-        if (numeroDeFuncionarios > 10){
-            imp = (super.getRendaAnual() * 1.14);
-        }
-        else {
-            imp = (super.getRendaAnual() * 1.16);
+        if (numeroDeFuncionarios > 10) {
+            imp = (super.getRendaAnual() * 0.14);
+        } else {
+            imp = (super.getRendaAnual() * 0.16);
         }
         return imp;
     }
-    
-    
+
+    public String toString() {
+        return super.getNome() + ", $ " + String.format("%.2f", imposto());
+    }
+
 }

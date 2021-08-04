@@ -20,9 +20,10 @@ public class Program {
         System.out.print("Enter the number of tax players: ");
         int n = sc.nextInt();
         for(int i = 1; i<=n; i++){
+            System.out.println("Tax player #" + i + " data");
             System.out.print("Individual or company (i/c)? ");
             char ch = sc.next().charAt(0);
-            sc.nextInt();
+            sc.nextLine();
             System.out.print("Name: ");
             String nome = sc.nextLine();
             System.out.print("Anual income: ");
@@ -37,9 +38,16 @@ public class Program {
                 int numeroDeFuncionarios = sc.nextInt();
                 list.add(new PessoaJuridica(nome, rendaAnual, numeroDeFuncionarios));
             }
-            
         }
-
+        System.out.println();
+        System.out.println("TAXES PAID: ");
+        double sum = 0;
+        for(Contribuintes p : list){
+            System.out.println(p.toString());
+            sum += p.imposto();
+        }
+        System.out.println();
+        System.out.printf("TOTAL TAXES: $ %.2f", sum);
         sc.close();
     }
     

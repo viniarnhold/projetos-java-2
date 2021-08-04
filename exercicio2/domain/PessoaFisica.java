@@ -23,15 +23,15 @@ public class PessoaFisica extends Contribuintes {
     @Override
     public Double imposto() {
         double imp;
-        if (super.getRendaAnual() < 20000.00){
-            imp = (super.getRendaAnual() * 1.15) - (gastoscsaude / 2);
-        }
-        else {
-            imp = (super.getRendaAnual() * 1.25) - (gastoscsaude / 2);
+        if (super.getRendaAnual() < 20000.00) {
+            imp = (super.getRendaAnual() * 0.15) - (gastoscsaude / 2);
+        } else {
+            imp = (super.getRendaAnual() * 0.25) - (gastoscsaude / 2);
         }
         return imp;
     }
 
-    
-
+    public String toString() {
+        return super.getNome() + ", $ " + String.format("%.2f", imposto());
+    }
 }
